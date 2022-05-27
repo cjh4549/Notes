@@ -1,0 +1,79 @@
+Property Access
+
+1. Assignments with dots (object)
+    - var person = {};
+      person.name = 'Mrs. White'; <-- assign property and value at the same time
+
+      Where else have we seen dots? Methods, promises, array.nativeMethod (ex. .push()), string methods 
+
+      Anything that uses dot is objects 
+  
+  2. Storing value by reference 
+      
+      var who = person.name; <-- 'who' is a container that holds the memory/reference to 'Mrs. White'; 
+      
+      But what if we change person.name = "Mr. White"? Now who = ??
+      
+      person.name will be "Mr. White" but who will remain as "Mrs. White"
+      
+      This will be more important and become messy when you pass references into functions and change them within functions 
+  
+      
+Game Character Solution
+      - When should you use object vs array?
+        Object is more of a document and array is a list of similar things (ex. a list of weapons/ ['gun', 'knife', 'bat'...])
+      - You can have an array of objects 
+        ex. game['weapons'] = [{type: 'laser', location: 'lab'}, {type: 'angry cats', location: 'kitchen'}...]
+        notice you need to keep the property names organized as categories throughout all the items in the array 
+        
+      - game.name = [];
+      - Either you could: game.name[0] = 'Miss Scarlet' or game.name.push('Miss Scarlet') <- notice you have to push to the right array             that is a property in an object 
+      
+Review Object
+- When can you use a dot notation? When its only 'string' and its valid character 
+- Bracket notation can take in numbers, expressions and weird characters 
+
+
+Destructuring 
+
+- It defines variables by taking them outside of objects or arrays 
+
+const [a, b] = [true, false]; 
+
+It assigns in order; 
+
+const [a, b] = [true, false] <-- this is called variable declaration 
+[a, b] = [true, false] <-- this is just assignment, there should be alreay existing a and b variables somewhere in order to do this 
+
+
+Object Destructuring 
+
+const {first, second} = {first: 0, second: 1}; //first: 0, second: 1
+
+- For object destructuring, you need to have matching names and the values of that property will be assigned to the just created variable
+- Order doesnt matter in object destruturing
+
+- The benefit of destructuring is less typing 
+
+
+Destructuring exercise 
+
+//Define an object
+const obj = {"name": 'Rusty', 'room': 'kitchen', 'weapon': 'candlestick'};
+
+//Extract weapon and location  
+const { weapon, room } = obj; 
+
+
+Destructuring Examples
+
+//How to extract variables from a big data set (ex. JSON) or nested objects? 
+
+//Omit certain values 
+var [a, , b] = [1, 2, 3]; // 1 and 3 are stored 
+
+//Spread operator
+var [a, ...b] = [1, 2, 3, 4]; //a = 1 , b = [2, 3, 4];
+
+//Swap the variables 
+[b, a] = [a, b];
