@@ -1,0 +1,71 @@
+Big-O 
+
+Its the 'longest' amount of time any function is going to take, given the worst case scenario of input (ex. hundreds of data)
+
+Big Omega = the best case
+Big Theta = the average case
+Big O = the worst case // only care about this: what is the slowest possible thing that can happen in this function 
+
+Write a function that iterates through an array and find the desired number in that array: 
+
+function search(arr, num) {
+  for (let i = 0, i < arr.length, i++) {
+    if (arr[i] === num ){
+      return true
+    } else {
+      return false 
+    }
+  }
+};
+
+//Big Omega
+In this case, Big Omega is when 'num' is located at index 0
+
+Its in constant time, no matter how big the dataset is, it will always(thus 'constant time') return the same result 
+
+omega(1)
+
+//Big Theta
+In this case, its going through the entire array and in the middle you find the 'num' = Big data n/2 but we drop 2 to ignore the rest of numbers 
+
+theta(n)
+
+//Big O
+The worst case which is to go through the entire dataset and doesnt find the 'num'
+
+O(n)
+
+
+//Graph
+O(n!), O(2 to n), O(n squared) <-- worst/longest time
+  
+O(n log n) <-- reassonable time: the trick is every time you iterate over an array, you reduce/filter the number of elements you need to iterate over ex) binary tree
+
+O(n) <-- base case: going through an entire array at a worst case scenario ex) for loop
+
+O(log n) <-- this is getting better: you reduce the number of dataset as you iterate over 
+
+
+//Cheating way
+The trick is look at the number of loops/for loops 
+
+ex)
+  for(let i...) {
+    for (let i...) {
+        for let (i...) {
+          //If one for loop = Big O(n) this is Big O(n to the third)
+      }
+    }
+  }
+    
+ex) 
+  arr.map(item => {
+    arr.forEach(i => {
+      arr.filter( x => {
+        // Big O(n to the third)
+      })
+    })
+  })
+
+
+!! Count the loops to figure out Big O time
