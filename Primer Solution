@@ -1,0 +1,23 @@
+var favouriteBook = [];
+
+function addFavouriteBook(bookTitle) {
+  // var splitTitle = bookTitle.split(' ');
+  // console.log(splitTitle);
+  
+  if (!bookTitle.includes('Great')) {
+    // var joined = splitTitle.join(' ');
+    favouriteBook.push(bookTitle);
+    console.log(`Favourite Books: ${favouriteBook.length}`)
+  } 
+}
+
+addFavouriteBook('A Song Of Ice and Fire');
+addFavouriteBook('The Great Gatsby');
+addFavouriteBook('Crime & Punishment');
+addFavouriteBook('Great Expectations')
+
+console.log(favouriteBook);
+
+//You don't need to split string and store into an array and rejoin the values because 'includes' is already a string functions and returns either true or false 
+
+//Use ! to flip the value of true in if condition 
