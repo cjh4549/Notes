@@ -69,3 +69,56 @@ ex)
 
 
 !! Count the loops to figure out Big O time
+
+
+Onsite Javascript Interview
+- String Methods
+1. Split -> turns string into array, and with that array you can manipulate in any way
+2. toLowerCase() -> always turn them into lowercase to compare two strings
+3. substring(indexStart, indexEnd) -> extracts parts of a string
+
+ex. const str = 'Mozilla';
+
+console.log(str.substring(1, 3));
+// expected output: "oz"
+
+console.log(str.substring(2));
+// expected output: "zilla"
+
+4. startsWith() -> returns true or false based on the parameter you are trying to find in the string
+
+Strings are 'immutable', so turn them into arrays to manipulate them
+
+
+Reverse String
+
+//Solution 1
+function reverse(str) {
+  return str.split('').reverse().join('');
+}
+
+//Solution 2
+function reverse(str) {
+  let reversed = '';
+  for (var i = str.length - 1; i >= 0; i--) {
+    reversed += str[i];
+  }
+  
+  return reversed;
+}
+
+!Notice for backwards for loop, you start i at the length of the array minus one
+
+reverse('Hello, world!')
+
+
+Array Methods
+1. array.from(arraylikeObj) -> creates a shallow array copy from 'array-like' objects (ex. string)
+2. Object.entries(obj) -> returns arrays of an object in the form of key-value pairs
+
+ex.  console.log(Object.entries(object1)); // Array [Array ["a", "somestring"], Array ["b", 42]]
+
+!Know which of array methods return new arrays and which don't 
+
+3. isArray() -> tells you if the passed in parameter is an array or not
+
