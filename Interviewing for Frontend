@@ -122,3 +122,19 @@ ex.  console.log(Object.entries(object1)); // Array [Array ["a", "somestring"], 
 
 3. isArray() -> tells you if the passed in parameter is an array or not
 
+
+//Function to remove duplicates and only have unique values: 
+
+const str = 'This is is a test test string is';
+
+function removeDuplicates(str){
+  const arr = str.split(' ');
+  
+  const set = new Set(arr); // set is a data structure that has unique values 
+  const newStr = set.join(' '); 
+  
+  return newStr;
+}
+
+removeDuplicates(str); 
+
