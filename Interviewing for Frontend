@@ -123,7 +123,7 @@ ex.  console.log(Object.entries(object1)); // Array [Array ["a", "somestring"], 
 3. isArray() -> tells you if the passed in parameter is an array or not
 4. filter()
 5. reduce()
-6. concat()
+6. concat() -> array1.concat(array2)  //array1 + array2
 7. join()
 8. pop(), push()
 9. map()
