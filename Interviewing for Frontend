@@ -121,7 +121,12 @@ ex.  console.log(Object.entries(object1)); // Array [Array ["a", "somestring"], 
 !Know which of array methods return new arrays and which don't 
 
 3. isArray() -> tells you if the passed in parameter is an array or not
-
+4. filter()
+5. reduce()
+6. concat()
+7. join()
+8. pop(), push()
+9. map()
 
 //Function to remove duplicates and only have unique values: 
 
@@ -138,3 +143,9 @@ function removeDuplicates(str){
 
 removeDuplicates(str); 
 
+
+Flattening 
+- It means make arrays within arrays within arrays just one new array
+
+ex) // const exampleArray = [1,2,[3,4, [5,6,7], 8], 9, 10];
+    // flatten(exampleArray); // [1,2,3,4,5,6,7,8,9,10]
