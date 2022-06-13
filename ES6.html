@@ -12,6 +12,7 @@ ex)
   s[2] = 7;
 
 
+
 Rest/Spread 
 
 Rest 'parameter' creates an array by taking various elements as function parameters. 
@@ -24,8 +25,30 @@ ex)
   }
   console.log(howMany(0, 1, 2));
 
-Spread 'operator' unpacks values in an array 
+Spread 'operator' unpacks or packs the values in an array 
 
 ex)
   const arr = [2, 4, 19, 8];
   Math.max(...arr);
+
+ex) 
+  [a, ...b] = [1, 2, 3, 4]; // a = 1, b = [2, 3, 4]
+
+!But you can't use spread operator to pack values in the middle. 
+
+
+
+Object Destructuring in nested object
+
+const LOCAL_FORECAST = {
+  yesterday: { low: 61, high: 75 },
+  today: { low: 64, high: 77 },
+  tomorrow: { low: 68, high: 80 }
+};
+
+const {today: { low, high }} = LOCAL_FORECAST; //low = 64, high = 77
+
+This would take low and high as variables. If you want to give them differet names:
+
+const {today: { low: todayLow, high: todayHigh }} = LOCAL_FORECAST; //todayLow = 64, todayHigh = 77
+
