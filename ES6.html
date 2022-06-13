@@ -1,0 +1,31 @@
+Mutate Array with an const
+
+const s = [5, 7, 2];
+
+s can't be used now to point to different array.
+
+But elements in the array can be mutated.
+
+ex)
+  s[0] = 2;
+  s[1] = 5;
+  s[2] = 7;
+
+
+Rest/Spread 
+
+Rest 'parameter' creates an array by taking various elements as function parameters. 
+
+It allows us to use map, filter and reduce methods. 
+
+ex) 
+  function howMany(...args) {
+    return "You have passed " + args.length + " arguments.";
+  }
+  console.log(howMany(0, 1, 2));
+
+Spread 'operator' unpacks values in an array 
+
+ex)
+  const arr = [2, 4, 19, 8];
+  Math.max(...arr);
