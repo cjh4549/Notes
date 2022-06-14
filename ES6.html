@@ -52,3 +52,90 @@ This would take low and high as variables. If you want to give them differet nam
 
 const {today: { low: todayLow, high: todayHigh }} = LOCAL_FORECAST; //todayLow = 64, todayHigh = 77
 
+
+
+Promise
+It's a javscript way of making a promise to do something asynchronously. It's a constructor function, so you need a 'new' keyword to create it. 
+
+const myPromise = new Promise( (resolve, reject) => {
+  //It takes two parameters: resolve and reject 
+})
+
+Resolve and reject are methods that take arguments. 
+
+const makeServerRequest = new Promise((resolve, reject) => {
+  
+  let responseFromServer;  
+
+  if(responseFromServer) {
+    resolve("Promise was fulfilled"); // Usually it would be an object from an API call 
+  } else {
+    reject("Promise was rejected");
+  }
+});
+
+If the response from the server is received, then you can use .then() to retrieve the response.
+
+makeServerRequest.then(result => {
+  console.log(result);
+});
+
+The result would be the argument that was passed into the resolve method earlier. 
+For reject state: 
+
+myPromise.catch(error => {
+  console.log(error);
+});
+
+Promise is useful for operations that take time such as server requests(API calls). 
+
+
+API calls
+
+Using fetch: 
+
+fetch('someURL')
+  .then((response) => return response.json())
+  .then(object => console.log(object));
+
+Async: 
+
+async function apiCall() {
+  let response = await fetch('someURL');
+  let data = await response.json();
+  return data;
+}
+apiCall().then(object => console.log(object));
+
+!But it's bad at error handling. How do you resolve this? 
+
+fetch(url)
+  .then((response) => {
+    if (response.status >= 200 && response.status <= 299) {
+      return response.json();
+    } else {
+      throw Error(response.statusText);
+    }
+  })
+  .then((object) => {
+    // do whatever you want with the JSON response
+  }).catch((error) => {
+    // Handle the error
+    console.log(error);
+  });
+      
+Axios: 
+
+It's most commonly used for better browser support, error handling and in React and other frameworks. 
+      
+You have to npm install the axios as it's an open source libray or use an external CDN. 
+      
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+  axios
+    .get("https://jsonplaceholder.typicode.com/users")
+    .then(response => {
+      console.log(response.data);
+    })
+    .catch(error => console.error(error));
+</script>
