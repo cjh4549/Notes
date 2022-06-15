@@ -58,3 +58,13 @@ function getMiddleOfArray(array) {
 // What if we had an app that calculates a distance between two zip codes?
 
 // Spatial complexity can be ignored if memory is not much of an issue with algorithms.
+
+
+// Trade Offs
+
+// A good interview tip: talk about how trading off (money vs customer service)
+// Mindset: putting a nested for loops... that feels like a bad idea
+// A Big O is a tool. If it doesn't involve user experience, who cares if you optimize it by 30 seconds? 
+// Readability and maintainability is way more important than Big O efficiency 
+// !! It's way more important for your code to communicate to humans than to computers. 
+// Use built in JavaScript methods more (ex. .sort() is way faster than your own sorting algorithms) 
