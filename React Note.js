@@ -39,3 +39,13 @@ const App = () => {
 //App is the parent that's rendering Pet 
 //App is drilling down props into Pet 
 //The direction is downwards always 
+//This is much easier to maintain, because you don't have to worry about parent anymore after we started dealing with children components 
+      
+//npm init -y
+//npx means install the package and run it right away
+
+//config prettier on everyone who downloads our project
+"scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "format": "prettier --write  \"src/**/*.{js,jsx}\""
+},
