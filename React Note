@@ -1,0 +1,141 @@
+//Pure React
+
+const App = () => {
+  return React.createElement(
+    "div",
+    {},
+    React.createElement("h1", {}, "Adopt Me!")
+  );
+};
+
+//What's the difference betwe App rendered as a function above and App as an instance below?  
+//Above: creating a line of car (blueprint)
+//Below: factory stamping out that car 
+
+ReactDOM.render(React.createElement(App), document.getElementById("root"));
+
+//Props
+
+const Pet = (props) => {
+    return(
+        React.createElement('div', {}, [
+            React.createElement('h1', {}, props.name),
+            React.createElement('h2', {}, props.animal),
+            React.createElement('h2', {}, props.breed),
+        ])
+    )
+}
+
+const App = () => {
+    return React.createElement("div",{}, [
+        React.createElement("h1", {}, "Adopt Me!"),
+        React.createElement(Pet, {
+            name: 'Luna',
+            animal: 'Dog',
+            breed: 'Havanese'
+        }),
+
+      
+//App is the parent that's rendering Pet 
+//App is drilling down props into Pet 
+//The direction is downwards always 
+//This is much easier to maintain, because you don't have to worry about parent anymore after we started dealing with children components 
+      
+//npm init -y
+//npx means install the package and run it right away
+
+
+What does all the files do in React?
+
+      1. package.json: This is where you install dependencies from npm 
+        - Dependencies: libraries from npm that you need for final production version for your project to work 
+
+It's usually good idea to export one component per file
+
+Once you are done with the development, you have to run 'npm run build' that will create codes for deployment
+
+Virtual DOM
+- The problem: every time DOM manipulation happens with JS, the broswer re-renders the entire site each time
+- Virtual DOM is a lightweight copy of the real DOM, like a blueprint
+- So when you made changes on the site, changing on VDOM is like changing blueprint, instead of changing the actual room structure 
+
+In general, keep your components small 
+
+Conditional Rendering
+- You CAN use if statement at the root of the component to render different components 
+- But imagine there is already a wrapper UI component, and inside of it you want to conditionally render a 'value'
+- Because JSX is returned inside the parentheses, it's an expression and thereby you can't put statements in there
+- You can use ternary operator to achieve this: 
+
+      {count % 2 === 0 ?
+      <h1>Count is even</h1> :
+      <h1>Count is odd</h1>}
+      
+ - The ternary operator is great if you have two UIs to show, but there may be a case where you want to show just one UI or nothing at all based on a condition
+       
+      {count % 2 === 0 && <h1>Count is even</h1>}
+      
+ - But this can be dangerous as an empty string or zero can evaluate to falsy value, which can cause an unpredictable behaviours 
+ 
+      {count % 2 === 0 ? <h1>Count is even</h1> : null}
+
+Loop
+- Array.map is the go to
+- Make sure to have key to each item you iterate through to create 
+  ex) <li key={id}>{name}</li>
+- Do not use index instead of ID because React won't properly optimize the performance 
+
+Event
+- It's an user action such as mouse click, hover, key press and etc.
+- In vanilla JS, you would create a selector on an element and add a listener to it, and listen for the behaviour
+
+  const button = document.querySelector('button');
+    button.addEventListenr('click', function(){
+      console.log('clicked');
+    })
+
+- In React, it's written in a more 'declarative' way
+- Instead of selecting an element from DOM through querySelector, you can reference an event 'directly' on the element
+
+  function Events() {
+    return(
+      <button onClick={() => console.log('clicked')}>Click</button>
+    )
+  }
+
+- But more commonly, instead of using an anonymous function, you declare a handleEvent function and call it in the element
+
+  function Events() {
+    const handleClick = () => {
+      console.log('clicked');
+    }
+  
+    return(
+      <button onClick={handleClick}>Click</button>
+    )
+  }
+
+- You can pass handleClick as a prop to a child component: 
+
+    function Events() {
+      const handleClick = () => {
+        console.log('clicked');
+      }
+
+      return(
+        <ChildComponent onClick={handleClick}/>
+      )
+    }
+
+    function ChildComponent({ onClick }) {
+      return <button onClick={onClick}>Click</button>
+    }
+
+
+State
+- A data that changes throughout the lifecycle of the app
+- Props can be passed between components but they are immutable, so what if you want to change the value? 
+- import { useState } from 'react';
+- A hook can only be used at the top level of the component 
+- const [count, setCount] = useState(0);
+
