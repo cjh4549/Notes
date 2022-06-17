@@ -149,3 +149,8 @@ Flattening
 
 ex) // const exampleArray = [1,2,[3,4, [5,6,7], 8], 9, 10];
     // flatten(exampleArray); // [1,2,3,4,5,6,7,8,9,10]
+
+
+Some Useful Links
+React: https://dev.to/frontendengineer/10-reactjs-coding-exercises-with-codepen-exercise-and-solution--22k7
+JS: http://thatjsdude.com/interview/js1.html
