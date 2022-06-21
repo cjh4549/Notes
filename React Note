@@ -140,6 +140,16 @@ State
 - const [count, setCount] = useState(0);
 
 
+UseEffect
+- Mount, Update, Unmount <- React lifecycle of the component: 
+  Component is mounted on a component tree, state changes and rerenders the component, component unmounts/removed from the tree
+- componentDidMount(){
+    //Fetch Data here
+  }
+- componentWillUnmount(){
+    //Terminate the stream of the data
+  }
+
 React Router DOM
 - <Link to=""></Link> provides navigation to different pages in the app using to="string" pathway.
 - But it's not actually rendering different 'views'
