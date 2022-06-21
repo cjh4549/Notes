@@ -216,3 +216,13 @@ Thinking in React
 
 1. Break components into hierarchy (ex. Higher: searchBar, productTable --> Lower: productHeader, productItself...)
 2. Build a static version First! (ex. )
+
+
+
+EsLint
+
+It forces code styles, opinions, structures for JS like enforcing code foramtting like prettier
+Is it using a old API, is it accessible... etc.
+
+
+  
