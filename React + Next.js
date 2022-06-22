@@ -225,4 +225,45 @@ It forces code styles, opinions, structures for JS like enforcing code foramttin
 Is it using a old API, is it accessible... etc.
 
 
-  
+Search Form 
+
+const location = "Toronto";
+
+return (
+    <div className="search-params">
+        <form>
+            <label htmlFor="location">
+                Location
+                <input id="location" value={location} placeholder="location" /> // value={location} Toronto will be pre-filled when the page is rendered
+            </label>
+            <button>Submit</button>
+        </form>
+    </div>
+)
+
+When you try to input something into that form, nothing happens Why?
+Because the input has value of const that is immutable, so every keypress event React senses, it re-renders the page but nothing is changing in the input field of the form
+So you have to make it mutable, using useState
+
+!The order of hooks matter
+!Do not put any hook inside the if statement or loops
+
+Controlled input vs Uncontrolled Input
+Controlled: you attach onChange function to input for React to listen to the inputs 
+Uncontrolled: you attach onSubmit to the form to listen to the input that DOM handled it like in HTML form. React is not doing anything, HTML DOM is. 
+
+In General, use uncontrolled input for react form
+
+
+Map
+Use map function to iterate through multiple data and transform them into components 
+
+Side Effects and UseEffect
+Side effects are unpredictable actions/responses that are done outside of React's pure functions such as components (ex. API calls, setTimeOut)
+Side effects should not be occurring inside the component because it should not get in the way of the component's rendering process
+In short, useEffect is a tool that lets us interact with the outside world but not affect the rendering or performance of the component that it's in. 
+
+ex. 
+UseEffect(() => {
+  setState();
+},[]) <- Dependency array: if you put state in there, every time that state changes, it will fire UseEffect each time
