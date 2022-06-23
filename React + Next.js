@@ -218,7 +218,6 @@ Thinking in React
 2. Build a static version First! (ex. )
 
 
-
 EsLint
 
 It forces code styles, opinions, structures for JS like enforcing code foramtting like prettier
@@ -262,8 +261,21 @@ Side Effects and UseEffect
 Side effects are unpredictable actions/responses that are done outside of React's pure functions such as components (ex. API calls, setTimeOut)
 Side effects should not be occurring inside the component because it should not get in the way of the component's rendering process
 In short, useEffect is a tool that lets us interact with the outside world but not affect the rendering or performance of the component that it's in. 
-
-ex. 
+ex)
 UseEffect(() => {
   setState();
 },[]) <- Dependency array: if you put state in there, every time that state changes, it will fire UseEffect each time
+
+
+Closure
+- Closure is a combination of the inner function and the lexical environment in which that function exists
+- Closure gives you access to an outer function's scope from an inner function
+Closure in React
+- Components are just basically functions, and inside there are many variables such as 'States'
+- you will have async fetch function inside the component and you want to use closure to access the outer states (which are variables) from inside of that async 
+function
+
+
+UseEffect and Async fetch function
+- You can't have async function directly inside the useEffect hook
+- You have to make it outside and call it from the inside of the hook 
