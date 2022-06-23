@@ -279,3 +279,8 @@ function
 UseEffect and Async fetch function
 - You can't have async function directly inside the useEffect hook
 - You have to make it outside and call it from the inside of the hook 
+
+
+Custom Hook
+- custom hook usually has other hooks in it
+
