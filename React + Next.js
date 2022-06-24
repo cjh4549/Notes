@@ -258,9 +258,9 @@ Map
 Use map function to iterate through multiple data and transform them into components 
 
 Side Effects and UseEffect
-Side effects are unpredictable actions/responses that are done outside of React's pure functions such as components (ex. API calls, setTimeOut)
-Side effects should not be occurring inside the component because it should not get in the way of the component's rendering process
-In short, useEffect is a tool that lets us interact with the outside world but not affect the rendering or performance of the component that it's in. 
+- Side effects are unpredictable actions/responses that are done outside of React's pure functions such as components (ex. API calls, setTimeOut)
+- Side effects should not be occurring inside the component because it should not get in the way of the component's rendering process
+- In short, useEffect is a tool that lets us interact with the outside world but not affect the rendering or performance of the component that it's in. 
 ex)
 UseEffect(() => {
   setState();
@@ -283,4 +283,20 @@ UseEffect and Async fetch function
 
 Custom Hook
 - custom hook usually has other hooks in it
+- Ex) a custom hook that takes in a state from parent component and inside the hook, there is useEffect which is dependent on that state that was passed in
+- Ex) a custom hook that stores cache of previously called API so the api doesn't get called each time user revisits
 
+
+Sharing State between components
+- If <panel /> componenet has state defined inside itself, the other panel's state would be independent from the state change of the first one even though they are 
+the same component
+- When you want to coordinate two components, move their state to their common parent.
+- Then pass the information down through props from their common parent.
+- Finally, pass the event handlers down so that the children can change the parent’s state.
+- It’s useful to consider components as “controlled” (driven by props) or “uncontrolled” (driven by state).
+
+
+Handling User input
+- Instead of having button eventlistener to each button in a form, because there are a lot of ways to submit a form
+- Just attach onSubmit to the form, and that's it
+- Controlled vs uncontrolled form
