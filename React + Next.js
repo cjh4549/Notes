@@ -300,3 +300,10 @@ Handling User input
 - Instead of having button eventlistener to each button in a form, because there are a lot of ways to submit a form
 - Just attach onSubmit to the form, and that's it
 - Controlled vs uncontrolled form
+
+
+React Router
+- BrowserRouter starts the app and makes all the router components available inside
+- Routes used to be called 'Switch'
+
+
