@@ -159,3 +159,18 @@ React Router DOM
 - <BrowserRouter> is from react router dom and provides the best looking URLs but the server needs to be configured correctly
 - To use the router, it has to be at the top level of the root element so you wrap it around the <App> component
 ex) <BrowserRouter><App/></BrowserRouter>
+
+
+Fetching API in React
+- fetch('api link')
+    .then(//JSON the object)
+    .then(//The actual formatted data result that you can put it into React state)
+    .catch((err) => {
+    
+      //this error doesn't capture the error if there is a typo at the end of endpoint:
+      
+      https://randomuser.me/api/?resultsssssssss=8 <-- this will still return the data 
+      ttps://rander.me/api/?results=8 <-- this will console log the error message 
+      
+      So you have to create a manual error using throw new Error method
+    })
