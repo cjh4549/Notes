@@ -1,3 +1,5 @@
+useMemo
+
 Problem: Unnecessary re-rendering of components
 
 When you update a state in React, it will re-render the entire component
@@ -32,3 +34,22 @@ Let's say you have an array or object with a bunch of values in them in your com
 Component gets rerendered for some reason, and the function is run from top to bottom and that object/array gets created 'AGAIN'
 And they are 'NOT' the same as before because new reference has been created 
 So if you want to make the pre-rendered and after-rendered object/array to be the same, you have to wrap them in memoization 
+
+
+useRef
+- It's not easy to directly target DOM nodes in React, so we use useRef to do this
+ex) 
+  const buttonRef = useRef(null);
+  <button ref={buttonRef}>Click</button>
+
+Now you have an access to button element like you used to in JS with buttonRef.current
+
+-Refs preserve state values as well, but they don't require re-render
+ex) 
+  useEffect(() => {
+    buttonRef.current.focus();
+  }; <- You don't need dependency because it doesn't re-render 
+            
+- It's also often used to focus on the element when the page mounts
+            
+//https://blog.logrocket.com/complete-guide-react-refs/
