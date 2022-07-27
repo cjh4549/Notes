@@ -45,11 +45,16 @@ ex)
 Now you have an access to button element like you used to in JS with buttonRef.current
 
 -Refs preserve state values as well, but they don't require re-render
+-We can IMPERATIVELY call DOM method on these refs
 ex) 
   useEffect(() => {
     buttonRef.current.focus();
   }; <- You don't need dependency because it doesn't re-render 
-            
-- It's also often used to focus on the element when the page mounts
+
+Use cases for useRef():
+        
+1. It's also often used to focus on the element when the page mounts
+2. To add animations
+3. To integrate with DOM-based libraries
             
 //https://blog.logrocket.com/complete-guide-react-refs/
